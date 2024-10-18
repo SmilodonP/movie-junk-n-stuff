@@ -1,8 +1,11 @@
 import './MovieDetails.css';
 
-function MovieDetails() {
+function MovieDetails( { movieDetails, className }) {
+    const classes = `MovieDetails ${className}`
+  
+  
   return (
-    <section className='MovieDetails'>
+    <section className={classes}>
       <p>Movie Details go here!</p>
     </section>
   );
