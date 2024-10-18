@@ -1,6 +1,6 @@
 import './App.css';
 import { useState} from 'react';
-import searchIcon from '../icons/search.png';
+import homeIcon from '../icons/home.png';
 import movieDetails from '../data/movie_details';
 import MovieDetails from '../MovieDetails/MovieDetails'
 
@@ -11,19 +11,24 @@ import MovieDetails from '../MovieDetails/MovieDetails'
 // import MoviesContainer from '../MoviesContainer/MoviesContainer';
 
 function App() {
-  const [isHidden, setMovieDetails] = useState("true");
+  const [isHidden, setHiddenDetails] = useState("true");
 
-  const toggleMovieDetails = () => {
-    setMovieDetails(!isHidden)
+  const toggleHidden = () => {
+    setHiddenDetails(!isHidden)
   };
 
   return (
     <main className='App'>
       <header>
         <h1>Movies-Junk-n-Stuff</h1>
-        <button onClick = {toggleMovieDetails}>Detailed_movie</button>
+        <button onClick = {toggleHidden}>Detailed_movie</button>
+          <img 
+            src={homeIcon} 
+            className={isHidden ? 'home hidden' : 'home'}
+            onClick = {toggleHidden}>
+          </img>
       </header>
-      <MovieDetails className={isHidden ? "hidden" : ""} movieDetails={movieDetails}/>
+      <MovieDetails className={isHidden ? 'hidden' : ''} movieDetails={movieDetails}/>
     </main>
   );
 }

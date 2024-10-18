@@ -1,3 +1,7 @@
-/* .hidden {
-    display: none !important;
-} */
+.MovieDetails {
+    display: flex;
+    flex-direction: column;
+}
+img {
+    flex: none;
+}
