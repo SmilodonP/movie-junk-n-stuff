@@ -1,0 +1,8 @@
+.movies-container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 20px;
+  gap: 20px;
+}

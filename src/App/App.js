@@ -1,14 +1,11 @@
 import './App.css';
-import { useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import homeIcon from '../icons/home.png';
 import movieDetails from '../data/movie_details';
 import MovieDetails from '../MovieDetails/MovieDetails'
+import Movies from '../MoviesContainer/MoviesContainer';
+import moviePosters from '../data/movie_posters';
 
-// Example imports (for later):
-// import { useState, useEffect } from 'react';
-// import moviePosters from '../data/movie_posters';
-// import movieDetails from '../data/movie_details';
-// import MoviesContainer from '../MoviesContainer/MoviesContainer';
 
 function App() {
   const [isHidden, setHiddenDetails] = useState("true");
@@ -20,7 +17,7 @@ function App() {
   return (
     <main className='App'>
       <header>
-        <h1>Movies-Junk-n-Stuff</h1>
+        <h1>The RT Files</h1>
         <button onClick = {toggleHidden}>Detailed_movie</button>
           <img 
             src={homeIcon} 
@@ -28,6 +25,7 @@ function App() {
             onClick = {toggleHidden}>
           </img>
       </header>
+      <Movies movies={moviePosters}/>
       <MovieDetails className={isHidden ? 'hidden' : ''} movieDetails={movieDetails}/>
     </main>
   );
