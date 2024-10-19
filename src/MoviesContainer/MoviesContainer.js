@@ -1,7 +1,8 @@
 import './MoviesContainer.css';
 import MovieCard from '../MovieCard/MovieCard';
 
-function Movies({ movies }) {
+function Movies({ movies, className }) {
+  const classes = `movies-container ${className}`
   const movieCards = movies.map((movie, index) => (
     <MovieCard
       key={index}
@@ -11,7 +12,7 @@ function Movies({ movies }) {
   ));
 
   return (
-    <section className='movies-container'>
+    <section className={classes}>
       {movieCards}
     </section>
   );

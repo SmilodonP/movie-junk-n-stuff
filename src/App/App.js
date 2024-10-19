@@ -25,7 +25,7 @@ function App() {
             onClick = {toggleHidden}>
           </img>
       </header>
-      <Movies movies={moviePosters}/>
+      <Movies className={isHidden ? '' : 'hidden'} movies={moviePosters}/>
       <MovieDetails className={isHidden ? 'hidden' : ''} movieDetails={movieDetails}/>
     </main>
   );
