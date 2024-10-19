@@ -1,12 +1,11 @@
 .MovieDetails {
     display: flex;
     flex-direction: column;
-    background-image: radial-gradient()
 }
 img {
     flex: none;
 }
 
-h1 {
+h2 {
     text-align: center;
 }

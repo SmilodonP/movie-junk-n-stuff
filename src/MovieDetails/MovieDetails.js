@@ -11,7 +11,7 @@ function MovieDetails( { movieDetails, className }) {
   return (
     <section className={classes}>
       <img src={movieDetails.backdrop_path} alt={movieDetails.title}></img>
-      <h1>{movieDetails.title}</h1>
+      <h2>{movieDetails.title}</h2>
       <Lists list_info={movieDetails.genre_ids}/>
       <p>{movieDetails.overview}</p>
       <Lists list_info={extraInfo} />
