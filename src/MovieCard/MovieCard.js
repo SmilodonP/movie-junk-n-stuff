@@ -4,7 +4,7 @@ import moviePosters from '../data/movie_posters';
 import UpvoteIcon from '../icons/upvote.png';
 import DownvoteIcon from '../icons/downvote.png';
 
-const MovieCard = ({ id, poster_path, initialVoteCount }) => {
+const MovieCard = ({ id, poster_path, initialVoteCount, toggleHidden }) => {
   const [voteCount, setVoteCount] = useState(initialVoteCount);
 
   const updateData = (id, newVoteCount) => {
@@ -32,7 +32,7 @@ const MovieCard = ({ id, poster_path, initialVoteCount }) => {
 
   return (
     <section className='movie-card'>
-      <img src={poster_path} alt="Missing Poster!!!!" />
+      <img src={poster_path} alt="Missing Poster!!!!" onClick={() => toggleHidden()} />
       <div id='votes'>
         <button onClick={handleUpVote}>
           <img src={UpvoteIcon} alt="Upvote" />
