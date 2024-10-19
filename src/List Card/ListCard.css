@@ -1,0 +1,14 @@
+.list-card {
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin: 2em;
+    min-width: 5em;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 2px white, 0 0 1em black, 0 0 0.2em #00ff3c;
+    background-color: #00ff3caa;
+    border: medium ridge black;
+    border-radius: .25em;
+}

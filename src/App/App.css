@@ -11,7 +11,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed; 
-  filter: brightnes(0.75), saturate(0), contrast(2);
+  filter: brightness(0.75), saturate(0), contrast(2);
 }
 
 header {
@@ -29,9 +29,23 @@ h1 {
   letter-spacing: 5px;
 }
 
+h2 {
+  text-decoration: underline;
+  color: rgb(0, 0, 0);
+  text-shadow: 0 0 10px #ffffff, 0 0 20px #00ff26, 0 0 25px #00ff3c; 
+  font-size: 100px;
+  letter-spacing: 5px;
+}
+
 p {
   font-size: 20px;
   text-align: center;
   margin-top: 50px;
   color: white;
+  text-shadow: 0 0 2.0px #00ff26, 0 0 25px #00ff3c;
+}
+
+
+.hidden {
+  display: none !important;
 }

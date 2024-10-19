@@ -1,0 +1,15 @@
+.MovieDetails {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8%;
+    background-color: rgba(189, 245, 133, 0.486);
+    overflow: hidden;
+}
+img {
+    flex: none;
+    object-fit: cover;
+}
+
+h2 {
+    text-align: center;
+}
