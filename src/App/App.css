@@ -4,7 +4,12 @@
   }
 
 body {
-  background-color: #3e49b1;
+  background-image: url(./assets/cow_fur.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-color: #000000;
 }
 
 header {
@@ -16,7 +21,8 @@ header {
 
 h1 {
   color: white;
-  font-size: 56px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  font-size: 100px;
   letter-spacing: 5px;
 }
 
