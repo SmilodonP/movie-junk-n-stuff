@@ -18,14 +18,13 @@ function App() {
     <main className='App'>
       <header>
         <h1>The RT Files</h1>
-        <button onClick = {toggleHidden}>Detailed_movie</button>
           <img 
             src={homeIcon} 
             className={isHidden ? 'home hidden' : 'home'}
             onClick = {toggleHidden}>
           </img>
       </header>
-      <Movies className={isHidden ? '' : 'hidden'} movies={moviePosters}/>
+      <Movies className={isHidden ? '' : 'hidden'} movies={moviePosters} toggleHidden={toggleHidden}/>
       <MovieDetails className={isHidden ? 'hidden' : ''} movieDetails={movieDetails}/>
     </main>
   );
