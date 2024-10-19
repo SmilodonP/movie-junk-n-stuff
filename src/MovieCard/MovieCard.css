@@ -6,6 +6,7 @@
   margin: 10px;
   padding-bottom: 1%;
   border-radius: 5%;
+  border: solid 2px rgba(0, 255, 0, 0.55);
   background-color: rgba(0, 255, 0, 0.55);
   text-align: center;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.333); 
@@ -14,6 +15,7 @@
   box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.666);
   transform: scale(1.0075); 
   transition: all 0.1s ease-in-out;
+  cursor: pointer;
 }
 
 .movie-card img {
@@ -24,8 +26,31 @@
 }
 
 #votes {
+  display: flex;
+  font-weight: bold;
+  flex-direction: row;
+  align-items: center;
   margin-top: 10px;
-  color: black;
+  color: rgb(0, 0, 0);
   text-align: center;
-  font-size: xx-large;
+  font-size: xxx-large;
+  cursor:default;
+}
+
+button {
+  background: none; 
+  border: none;
+  cursor: pointer;
+  width:75px;
+  margin: 10px;
+  padding: 10px;
+}
+
+button:hover {
+  box-shadow: 0 0 10px #ffffff;
+}
+
+.vote-count {
+  margin: 10px;
+  font-weight: bolder;
 }
