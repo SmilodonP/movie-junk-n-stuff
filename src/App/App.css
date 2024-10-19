@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
 
 body {
@@ -9,20 +10,22 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed; 
-  background-color: #000000;
+  filter: brightnes(0.75), saturate(0), contrast(2);
+  
 }
 
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 25px;
 }
 
 h1 {
-  color: white;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-  font-size: 100px;
+  font-family: 'Courier New', Courier, monospace;
+  color: rgb(0, 0, 0);
+  text-shadow: 0 0 10px #ffffff, 0 0 20px #00ff26, 0 0 25px #00ff3c; 
+  font-size: 125px;
   letter-spacing: 5px;
 }
 

@@ -9,7 +9,7 @@ function App() {
   return (
     <main className='App'>
       <header>
-        <h1>MOOvies</h1>
+        <h1>The RT Files</h1>
       </header>
       <Movies movies={moviePosters}/>
     </main>

@@ -6,8 +6,14 @@
   margin: 10px;
   padding-bottom: 1%;
   border-radius: 5%;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(0, 255, 0, 0.55);
   text-align: center;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.333); 
+}
+.movie-card:hover {
+  box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.666);
+  transform: scale(1.0075); 
+  transition: all 0.1s ease-in-out;
 }
 
 .movie-card img {
