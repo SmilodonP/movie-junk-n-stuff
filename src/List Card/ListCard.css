@@ -1,0 +1,12 @@
+.list-card {
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin: 2em;
+    min-width: 5em;
+    text-align: center;
+    background-color: lightcyan;
+    border: medium ridge black;
+    border-radius: .25em;
+}

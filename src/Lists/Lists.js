@@ -9,9 +9,9 @@ function Lists({list_info}) {
     })
     console.log(list)
     return (
-        <ul className='list-container'>
+        <div className='list-container'>
             {list}
-        </ul>
+        </div>
     );
 }
 

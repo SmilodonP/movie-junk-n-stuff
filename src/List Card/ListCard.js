@@ -2,7 +2,7 @@ import './ListCard.css';
 
 function ListCard({item}) {
     return (
-        <li>{item}</li>
+        <div class='list-card'>{item}</div>
     )
 }
 

@@ -1,7 +1,12 @@
 .MovieDetails {
     display: flex;
     flex-direction: column;
+    background-image: radial-gradient()
 }
 img {
     flex: none;
+}
+
+h1 {
+    text-align: center;
 }
