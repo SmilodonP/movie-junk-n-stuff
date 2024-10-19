@@ -1,17 +1,33 @@
 import React, { useState } from 'react';
 import './MovieCard.css';
+import moviePosters from '../data/movie_posters';
 import UpvoteIcon from '../icons/upvote.png';
 import DownvoteIcon from '../icons/downvote.png';
 
-const MovieCard = ({ poster_path, initialVoteCount }) => {
+const MovieCard = ({ id, poster_path, initialVoteCount }) => {
   const [voteCount, setVoteCount] = useState(initialVoteCount);
 
+  const updateData = (id, newVoteCount) => {
+    const updatedMovies = moviePosters.map((movie) => {
+      if (movie.id === id) {
+        return { ...movie, vote_count: newVoteCount };
+      }
+      return movie;
+    });
+
+    console.log('Updated Mock Database:', updatedMovies);
+  };
+
   const handleUpVote = () => {
-    setVoteCount(voteCount + 1);
+    const newVoteCount = voteCount + 1;
+    setVoteCount(newVoteCount);
+    updateData(id, newVoteCount);
   };
 
   const handleDownVote = () => {
-    setVoteCount(voteCount - 1);
+    const newVoteCount = voteCount - 1;
+    setVoteCount(newVoteCount);
+    updateData(id, newVoteCount);
   };
 
   return (
@@ -22,7 +38,7 @@ const MovieCard = ({ poster_path, initialVoteCount }) => {
           <img src={UpvoteIcon} alt="Upvote" />
         </button>
         <span className='vote-count'> 
-            {voteCount}
+          {voteCount}
         </span>
         <button onClick={handleDownVote}>
           <img src={DownvoteIcon} alt="Downvote" />
