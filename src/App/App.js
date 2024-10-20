@@ -9,9 +9,20 @@ import moviePosters from '../data/movie_posters';
 
 function App() {
   const [isHidden, setHiddenDetails] = useState("true");
+  const [movies, setMovies] = useState(moviePosters);
 
   const toggleHidden = () => {
     setHiddenDetails(!isHidden)
+  };
+
+  const updateMovies = (id, vote) => {
+    const updateMovies = movies.map((movie) => {
+      if (movie.id === id) {
+        return { ...movie, vote_count: (movie.vote_count + vote) }
+      }
+      return movie;
+    })
+    setMovies(updateMovies)
   };
 
   return (
@@ -24,7 +35,7 @@ function App() {
             onClick = {toggleHidden}>
           </img>
       </header>
-      <Movies className={isHidden ? '' : 'hidden'} movies={moviePosters} toggleHidden={toggleHidden}/>
+      <Movies className={isHidden ? '' : 'hidden'} movies={movies} toggleHidden={toggleHidden} updateMovies={updateMovies}/>
       <MovieDetails className={isHidden ? 'hidden' : ''} movieDetails={movieDetails}/>
     </main>
   );
