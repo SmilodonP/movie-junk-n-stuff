@@ -17,13 +17,19 @@ function App() {
   };
 
   const updateMovies = (id, vote) => {
-    const updateMovies = movies.map((movie) => {
-      if (movie.id === id) {
-        return { ...movie, vote_count: (movie.vote_count + vote) }
-      }
-      return movie;
+    fetch(`https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify({'vote_direction': vote}),
+      headers: {'Content-Type': 'application/json'}
     })
-    setMovies(updateMovies)
+      .then(response => response.json())
+      .then(updatedMovie => {
+        const updatedMovies = movies.map(movie =>
+          movie.id === updatedMovie.id ? updatedMovie : movie
+      );
+        setMovies(updatedMovies);
+      })
+      .catch(error => console.log('We messed up so much!'))
   };
 
   const movieData = () => {

@@ -9,13 +9,13 @@ const MovieCard = ({ id, poster_path, initialVoteCount, updateMovies, getDetails
     <section className='movie-card'>
       <img src={poster_path} alt="Missing Poster!!!!" onClick={() => getDetails(id)} />
       <div id='votes'>
-        <button onClick={() => updateMovies(id, 1)}>
+        <button onClick={() => updateMovies(id, 'up')}>
           <img src={UpvoteIcon} alt="Upvote" />
         </button>
         <span className='vote-count'> 
           {initialVoteCount}
         </span>
-        <button onClick={() => updateMovies(id, -1)}>
+        <button onClick={() => updateMovies(id, 'down')}>
           <img src={DownvoteIcon} alt="Downvote" />
         </button>
       </div>
