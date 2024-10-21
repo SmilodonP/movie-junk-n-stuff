@@ -4,10 +4,10 @@ import moviePosters from '../data/movie_posters';
 import UpvoteIcon from '../icons/upvote.png';
 import DownvoteIcon from '../icons/downvote.png';
 
-const MovieCard = ({ id, poster_path, initialVoteCount, toggleHidden, updateMovies }) => {
+const MovieCard = ({ id, poster_path, initialVoteCount, updateMovies, getDetails }) => {
   return (
     <section className='movie-card'>
-      <img src={poster_path} alt="Missing Poster!!!!" onClick={() => toggleHidden()} />
+      <img src={poster_path} alt="Missing Poster!!!!" onClick={() => getDetails(id)} />
       <div id='votes'>
         <button onClick={() => updateMovies(id, 1)}>
           <img src={UpvoteIcon} alt="Upvote" />

@@ -1,7 +1,7 @@
 import './MoviesContainer.css';
 import MovieCard from '../MovieCard/MovieCard';
 
-function Movies({ movies, className, toggleHidden, updateMovies }) {
+function Movies({ movies, className, updateMovies, getDetails }) {
   const classes = `movies-container ${className}`
   const movieCards = movies.map((movie, index) => (
     <MovieCard
@@ -9,8 +9,8 @@ function Movies({ movies, className, toggleHidden, updateMovies }) {
       id ={movie.id}
       poster_path={movie.poster_path}
       initialVoteCount={movie.vote_count}
-      toggleHidden={toggleHidden}
-      updateMovies={updateMovies} // Pass the initial vote count as a prop
+      updateMovies={updateMovies}
+      getDetails={getDetails} // Pass the initial vote count as a prop
     />
   ));
 

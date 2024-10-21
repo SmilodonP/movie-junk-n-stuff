@@ -10,6 +10,7 @@ import moviePosters from '../data/movie_posters';
 function App() {
   const [isHidden, setHiddenDetails] = useState("true");
   const [movies, setMovies] = useState([]);
+  const [movieDetails, setMovieDetails] = useState(null);
 
   const toggleHidden = () => {
     setHiddenDetails(!isHidden)
@@ -29,8 +30,22 @@ function App() {
     fetch('https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies')
       .then(response => response.json())
       .then(data => setMovies([...movies, ...data]))
-      .catch(error => console.log("We messed up!"))
+      .catch(error => console.log('We messed up!'))
+  };
+
+  const getDetails = (id) => {
+    fetch(`https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/${id}`)
+      .then(response => response.json())
+      .then(data => setMovieDetails(data))
+      .catch(error => console.log('We messed up less!'));
+    toggleHidden();
   }
+
+  const homeClear = () => {
+    setMovieDetails(null);
+    toggleHidden();
+  };
+
   useEffect(() =>{
     movieData();
   }, [])
@@ -42,10 +57,10 @@ function App() {
           <img 
             src={homeIcon} 
             className={isHidden ? 'home hidden' : 'home'}
-            onClick = {toggleHidden}>
+            onClick = {homeClear}>
           </img>
       </header>
-      <Movies className={isHidden ? '' : 'hidden'} movies={movies} toggleHidden={toggleHidden} updateMovies={updateMovies}/>
+      <Movies className={isHidden ? '' : 'hidden'} movies={movies} getDetails={getDetails} updateMovies={updateMovies}/>
       {movieDetails && <MovieDetails className={isHidden ? 'hidden' : ''} movieDetails={movieDetails}/>}
     </main>
   );
