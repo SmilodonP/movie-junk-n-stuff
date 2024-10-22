@@ -2,12 +2,12 @@ import './Lists.css';
 import ListCard from '../List Card/ListCard';
 
 function Lists({list_info}) {
-    const list = list_info.map(item => {
+    const list = list_info.map((item,index) => {
         return (
-            <ListCard item={item} />
+            <ListCard key={index} item={item} />
         )
     })
-    console.log(list)
+
     return (
         <div className='list-container'>
             {list}
