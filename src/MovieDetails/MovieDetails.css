@@ -6,7 +6,7 @@
   border: #00ff1a 3px solid;
   overflow: hidden;
   background-color: rgba(128, 255, 0, 0.505);
-  margin: auto;
+  margin: 2%;
   font-size: 100px;
 }
 
@@ -42,7 +42,6 @@ p {
   background-color: #ffffffc1;
   border: solid black 1px;
   border-radius: 2%;
-  box-shadow:  0 0 10px #0000008d, 0 0 20px #00ff1aa8, 0 0 25px #ff000077;
 }
 
 .extra_info {

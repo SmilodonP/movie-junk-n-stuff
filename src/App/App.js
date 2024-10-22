@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import homeIcon from '../icons/home.png';
 // import movieDetails from '../data/movie_details';
 import MovieDetails from '../MovieDetails/MovieDetails'
@@ -59,7 +59,7 @@ function App() {
   return (
     <main className='App'>
       <header>
-        <h1>The RT Files</h1>
+        <h1>The RT Files:</h1>
           <img 
             src={homeIcon} 
             className={isHidden ? 'home hidden' : 'home'}

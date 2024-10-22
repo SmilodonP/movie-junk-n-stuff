@@ -19,14 +19,24 @@ body {
 header {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content:space-between;
   align-items: center;
-  padding-bottom: 25px;
+  padding-bottom: 2%;
+  padding-right: 5%;
+  padding-left: 5%;
 }
 
 header img {
-  align-self:center;
+  height:150px;
   opacity: 0.75;
+}
+
+header img:hover {
+  cursor: pointer;
+  box-shadow: 0 0 40px rgba(9, 255, 0, 0.875);
+  transform: scale(1.0075); 
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
 }
 
 h1 {
