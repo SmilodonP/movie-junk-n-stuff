@@ -3,10 +3,12 @@
   padding: 0;
   font-family: 'Courier New', Courier, monospace;
   text-align: center;
+  align-items: center;
   }
 
 body {
-  background-image: url(./assets/cow_fur.jpg);
+  background-color: black;
+  background-image: url(./assets/space_film.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -16,35 +18,35 @@ body {
 
 header {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content:space-between;
   align-items: center;
-  padding-bottom: 25px;
+  padding-bottom: 2%;
+  padding-right: 5%;
+  padding-left: 5%;
+}
+
+header img {
+  height:150px;
+  opacity: 0.75;
+}
+
+header img:hover {
+  cursor: pointer;
+  box-shadow: 0 0 40px rgba(9, 255, 0, 0.875);
+  transform: scale(1.0075); 
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
 }
 
 h1 {
   text-decoration: underline;
-  color: rgb(0, 0, 0);
-  text-shadow: 0 0 10px #ffffff, 0 0 20px #00ff26, 0 0 25px #00ff3c; 
-  font-size: 150px;
+  text-decoration-thickness: 7.5px ;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 10px #000000, 0 0 20px #ffffff, 0 0 25px #00ff3c; 
+  font-size: 175px;
   letter-spacing: 5px;
 }
-
-h2 {
-  text-decoration: underline;
-  color: rgb(0, 0, 0);
-  text-shadow: 0 0 10px #ffffff, 0 0 20px #00ff26, 0 0 25px #00ff3c; 
-  font-size: 100px;
-  letter-spacing: 5px;
-}
-
-p {
-  font-size: 20px;
-  text-align: center;
-  margin-top: 50px;
-  color: white;
-  text-shadow: 0 0 2.0px #00ff26, 0 0 25px #00ff3c;
-}
-
 
 .hidden {
   display: none !important;
