@@ -1,7 +1,6 @@
 import './App.css';
 import React, {useEffect, useState} from 'react';
 import logo from './assets/RT_logo.png';
-import homeIcon from './assets/home_icon.png';
 import MovieDetails from '../MovieDetails/MovieDetails'
 import Movies from '../MoviesContainer/MoviesContainer';
 
@@ -27,7 +26,7 @@ function App() {
         const updatedMovies = movies.map(movie =>
           movie.id === updatedMovie.id ? updatedMovie : movie
       );
-        setMovies(updatedMovies);
+        setMovies([...updatedMovies]);
       })
       .catch(error => console.log('We messed up so much!'))
   };

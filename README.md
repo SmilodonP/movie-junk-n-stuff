@@ -1,5 +1,18 @@
 # Rancid Tomatillos - Starter Repo
 
+
+-Overview of project and goals
+
+-Overview of technologies used, challenges, wins, and any other reflections
+
+-Link to deployed site
+
+-Screenshots/gifs of your app
+
+-Links to contributors’ GitHub profiles
+
+
+
 ## [The project spec for Rancid Tomatillos can be found here.](https://curriculum.turing.edu/module3/projects/rancid-tomatillos)
 
 ## Set Up
