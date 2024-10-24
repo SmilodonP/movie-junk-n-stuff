@@ -56,10 +56,18 @@ describe('Main Page', () => {
     }).as('interception2')
     cy.get('.movie-card').eq(3).find('.vote-count').contains(27642)
     cy.get('.movie-card').eq(3).find('.downvote').click()
-      // .wait('@interception2').its('response.statusCode').should('contain', 200)
+      .wait('@interception2')
     cy.get('.movie-card').eq(3).find('.vote-count').should('contain', 27641)
-    cy.get('.movie-card').eq(3).find('.upvote').click()
-      // .wait('@interception2').its('response.statusCode').should('contain', 200)
+  })
+    
+  it('the last movie card has vote buttons that change the vote count', ()=>{
+    cy.intercept('PATCH', 'https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/680', {
+      statusCode: 200,
+      fixture: "pulp_fiction_up"
+    }).as('interception2')
     cy.get('.movie-card').eq(3).find('.vote-count').contains(27642)
+    cy.get('.movie-card').eq(3).find('.upvote').click()
+      .wait('@interception2')
+    cy.get('.movie-card').eq(3).find('.vote-count').should('contain', 27643)
   })
 })
