@@ -1,20 +1,14 @@
 import './App.css';
 import React, {useEffect, useState} from 'react';
-import logo from './assets/RT_logo.png';
-import homeIcon from './assets/home_icon.png';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import { HomeHeader, DetailsHeader} from '../Headers/Headers'
 import MovieDetails from '../MovieDetails/MovieDetails'
 import Movies from '../MoviesContainer/MoviesContainer';
-
-
+import Error from '../Error/Error';
 
 function App() {
-  const [isHidden, setHiddenDetails] = useState("true");
   const [movies, setMovies] = useState([]);
-  const [movieDetails, setMovieDetails] = useState(null);
-
-  const toggleHidden = () => {
-    setHiddenDetails(!isHidden)
-  };
+  const navigate = useNavigate();
 
   const updateMovies = (id, vote) => {
     fetch(`https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/${id}`, {
@@ -29,28 +23,23 @@ function App() {
       );
         setMovies(updatedMovies);
       })
-      .catch(error => console.log('We messed up so much!'))
+      .catch(error => navigate(`*`, { state: { error: error}}));
   };
 
   const movieData = () => {
     fetch('https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies')
       .then(response => response.json())
       .then(data => setMovies([...movies, ...data]))
-      .catch(error => console.log('We messed up!'))
+      .catch(error => navigate(`*`, { state: { error: error}}));
   };
 
   const getDetails = (id) => {
     fetch(`https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/${id}`)
       .then(response => response.json())
-      .then(data => setMovieDetails(data))
-      .catch(error => console.log('We messed up less!'));
-    toggleHidden();
-  }
+      .then(data => navigate(`/${id}`, { state: { movieDetails: data}}))
+      .catch(error => navigate(`*`, { state: { error: error}}));
 
-  const homeClear = () => {
-    setMovieDetails(null);
-    toggleHidden();
-  };
+  }
 
   useEffect(() =>{
     movieData();
@@ -58,28 +47,19 @@ function App() {
 
   return (
     <main className='App'>
-      <header>
-        <section className={isHidden ?'logo': 'hidden'}>
-          <img src={logo} alt="logo"/> 
-        </section> 
-        <button 
-          className={isHidden ? 'homeButton home hidden' : 'homeButton home'}
-          onClick={homeClear}
-        />
-        <section className='titles'>
-          <h1>The RT Files</h1>
-          <h3>Movies Exist</h3>
-        </section>
-        <section className={isHidden ?'logo': 'hidden'}>
-          <img src={logo} alt="logo"/> 
-        </section>
-        <button 
-          className={isHidden ? 'homeButton home hidden' : 'homeButton home'}
-          onClick={homeClear}
-        />
-      </header>
-      <Movies className={isHidden ? '' : 'hidden'} movies={movies} getDetails={getDetails} updateMovies={updateMovies}/>
-      {movieDetails && <MovieDetails className={isHidden ? 'hidden' : ''} movieDetails={movieDetails}/>}
+      <Routes>
+        <Route path='/' element={<>
+              <HomeHeader /> 
+              <Movies movies={movies} getDetails={getDetails} updateMovies={updateMovies}/>
+            </>
+          }/>
+        <Route path='/:id' element={<>
+            <DetailsHeader />
+            <MovieDetails />
+          </>
+        }/>
+        <Route path='*' element={<Error />}/>
+      </Routes>
     </main>
   );
 }

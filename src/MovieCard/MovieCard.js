@@ -5,7 +5,7 @@ import DownvoteIcon from '../icons/downvote.png';
 const MovieCard = ({ id, poster_path, initialVoteCount, updateMovies, getDetails }) => {
   return (
     <section className='movie-card'>
-      <img src={poster_path} alt="Missing Poster!!!!" className='movieImage' onClick={() => getDetails(id)} />
+        <img src={poster_path} alt="Movie Poster!!!!" className='movieImage' onClick={() => getDetails(id)} />
       <div id='votes'>
         <button onClick={() => updateMovies(id, 'up')} className='upvote'>
           <img src={UpvoteIcon} alt="Upvote" />
