@@ -1,15 +1,19 @@
 import './MovieDetails.css';
 import Lists from '../Lists/Lists'
+import { useLocation } from 'react-router-dom'
 
-function MovieDetails( { movieDetails, className }) {
-    const classes = `MovieDetails ${className}`
-    const extraInfo = [
-      "Language: " + movieDetails.original_language + ", ",
-      "Rating: " + movieDetails.popularity + ", ",
-      "Release Date: " + movieDetails.release_date
-    ]
+function MovieDetails() { 
+  const location = useLocation();
+  const { movieDetails } = location.state || {};
+  
+  const extraInfo = [
+    "Language: " + movieDetails.original_language + ", ",
+    "Rating: " + movieDetails.popularity + ", ",
+    "Release Date: " + movieDetails.release_date
+  ]
+
   return (
-    <section className={classes}>
+    <section className='MovieDetails'>
       <section className='movie-info'>
         <img src={movieDetails.backdrop_path} alt={movieDetails.title}></img>
         <h2>{movieDetails.title}</h2>
