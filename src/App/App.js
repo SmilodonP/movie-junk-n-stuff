@@ -4,13 +4,10 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import { HomeHeader, DetailsHeader} from '../Headers/Headers'
 import MovieDetails from '../MovieDetails/MovieDetails'
 import Movies from '../MoviesContainer/MoviesContainer';
-
-
+import Error from '../Error/Error';
 
 function App() {
-  const [isHidden, setHiddenDetails] = useState("true");
   const [movies, setMovies] = useState([]);
-  const [movieDetails, setMovieDetails] = useState(null);
   const navigate = useNavigate();
 
   const updateMovies = (id, vote) => {
@@ -26,21 +23,21 @@ function App() {
       );
         setMovies(updatedMovies);
       })
-      .catch(error => console.log('We messed up so much!'))
+      .catch(error => navigate(`*`, { state: { error: error}}));
   };
 
   const movieData = () => {
     fetch('https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies')
       .then(response => response.json())
       .then(data => setMovies([...movies, ...data]))
-      .catch(error => console.log('We messed up!'))
+      .catch(error => navigate(`*`, { state: { error: error}}));
   };
 
   const getDetails = (id) => {
     fetch(`https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/${id}`)
       .then(response => response.json())
       .then(data => navigate(`/${id}`, { state: { movieDetails: data}}))
-      .catch(error => console.log('We messed up less!'));
+      .catch(error => navigate(`*`, { state: { error: error}}));
 
   }
 
@@ -61,6 +58,7 @@ function App() {
             <MovieDetails />
           </>
         }/>
+        <Route path='*' element={<Error />}/>
       </Routes>
     </main>
   );
