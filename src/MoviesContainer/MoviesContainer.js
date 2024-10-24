@@ -1,8 +1,7 @@
 import './MoviesContainer.css';
 import MovieCard from '../MovieCard/MovieCard';
 
-function Movies({ movies, className, updateMovies, getDetails }) {
-  const classes = `movies-container ${className}`
+function Movies({ movies, updateMovies, getDetails }) {
   const movieCards = movies.map((movie, index) => (
     <MovieCard
       key={index}
@@ -10,12 +9,12 @@ function Movies({ movies, className, updateMovies, getDetails }) {
       poster_path={movie.poster_path}
       initialVoteCount={movie.vote_count}
       updateMovies={updateMovies}
-      getDetails={getDetails} // Pass the initial vote count as a prop
+      getDetails={getDetails} 
     />
   ));
 
   return (
-    <section className={classes}>
+    <section className='movies-container'>
       {movieCards}
     </section>
   );
