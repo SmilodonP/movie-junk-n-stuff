@@ -1,56 +1,74 @@
 .MovieDetails {
   position: relative;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  border-radius: 8%;
+  background-color: rgba(128, 255, 0, 0.505);
+  border-radius: 5%;
   border: #00ff1a 3px solid;
   overflow: hidden;
-  background-color: rgba(128, 255, 0, 0.505);
-  margin: 2%;
+  margin: 3%;
   font-size: 100px;
+  opacity: 90%;
 }
 
-movie-info {
-  margin: 10px;
-  padding: 10px;
-  
+.MovieDetails:hover {
+  opacity: 100%;
+  color:rgb(26, 255, 0);
+  box-shadow: 3px 3px 20px rgb(255, 255, 255);
+  transform: scale(1.0075); 
+  transition: all 0.1s ease-in-out;
+  cursor: default;
+}
+
+movie-info:hover {
+  opacity: 100%;
+  color:#00ff1a;
 }
 
 section img {
   width: 100%;
+  height: 7.55em;
+  object-fit: cover;
   display: block;
 }
 
 
 h2 {
-    text-align: center;
-    text-shadow: 0 0 10px #0000008d, 0 0 20px #00ff1a, 0 0 25px #ff000077;
-    text-decoration: underline;
-    color: rgb(255, 255, 255); 
-    font-size: 1em;
-    letter-spacing: 5px;
-  }
+  margin-top: -1.1em;
+  margin-left: 1em;
+  margin-right: 1em;
+  text-align: center;
+  text-shadow: 0 0 5px #000000, 0 0 10px rgb(26, 255, 0);
+  text-decoration: underline;
+  text-decoration-thickness: .05em;
+  font-weight: 600;
+  color: rgb(255, 255, 255); 
+  font-size: .7em;
+  letter-spacing: 4px;
+}
+
 
 p {
   color: rgb(0, 0, 0);
-  font-size: .3em;
+  font-size: .22em;
   font-weight: bolder;
   text-align: center;  
-  margin-left: 75px;
-  margin-right: 75px;
+  margin-left: 55px;
+  margin-right: 55px;
+  padding: .2em;
   text-shadow: 0 0 10px #ffffff;
   background-color: #ffffffc1;
   border: solid black 1px;
-  border-radius: 2%;
+  border-radius: 1%;
 }
 
 .extra_info {
-  font-size: .3em;
+  font-size: .2em;
   font-weight: bolder;
   text-align: center;
   margin-top: 33px;
   margin-left: 75px;
   margin-right: 75px;
   color: rgb(0, 0, 0);
-  text-shadow: 0 0 10px #ffffff;
+  text-shadow: 0 0 5px #ffffff;
 }

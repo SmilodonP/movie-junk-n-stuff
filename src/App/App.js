@@ -1,10 +1,10 @@
 import './App.css';
 import React, {useEffect, useState} from 'react';
-import homeIcon from '../icons/home.png';
-// import movieDetails from '../data/movie_details';
+import logo from './assets/RT_logo.png';
+import homeIcon from './assets/home_icon.png';
 import MovieDetails from '../MovieDetails/MovieDetails'
 import Movies from '../MoviesContainer/MoviesContainer';
-import moviePosters from '../data/movie_posters';
+
 
 
 function App() {
@@ -59,12 +59,24 @@ function App() {
   return (
     <main className='App'>
       <header>
-        <h1>The RT Files:</h1>
-          <img 
-            src={homeIcon} 
-            className={isHidden ? 'home hidden' : 'home'}
-            onClick = {homeClear}>
-          </img>
+        <section className={isHidden ?'logo': 'hidden'}>
+          <img src={logo} alt="logo"/> 
+        </section> 
+        <button 
+          className={isHidden ? 'homeButton home hidden' : 'homeButton home'}
+          onClick={homeClear}
+        />
+        <section className='titles'>
+          <h1>The RT Files</h1>
+          <h3>Movies Exist</h3>
+        </section>
+        <section className={isHidden ?'logo': 'hidden'}>
+          <img src={logo} alt="logo"/> 
+        </section>
+        <button 
+          className={isHidden ? 'homeButton home hidden' : 'homeButton home'}
+          onClick={homeClear}
+        />
       </header>
       <Movies className={isHidden ? '' : 'hidden'} movies={movies} getDetails={getDetails} updateMovies={updateMovies}/>
       {movieDetails && <MovieDetails className={isHidden ? 'hidden' : ''} movieDetails={movieDetails}/>}
