@@ -1,12 +1,9 @@
-// Mock data to use for testing:
-// import posters from '../fixtures/movie_posters.json' (we've added mock data to this file for you!)
-// import details from '../fixtures/movie_details.json' (you will need to add your own mock data to this file!)
 
 describe('Main Page', () => {
   beforeEach(() => {
     cy.intercept('GET', 'https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies', {
       statusCode: 200,
-      fixture: "movie_posters"
+      fixture: 'movie_posters'
     })
     cy.visit('http://localhost:3000/')
   })
@@ -30,18 +27,26 @@ describe('Main Page', () => {
     cy.get('.movie-card').eq(3).find('.downvote').should('be.visible').and('not.be.disabled')
   })
 
-  it('the first movie card has vote buttons that change the vote count', ()=>{
+  it('the first movie card downvote button updates the vote count', ()=>{
     cy.intercept('PATCH', 'https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/155', {
       statusCode: 200,
-      fixture: "dark_knight"
+      fixture: 'dark_knight'
     }).as('interception')
     cy.get('.movie-card').first().find('.vote-count').contains(32544)
     cy.get('.movie-card').first().find('.downvote').click()
       .wait('@interception')
     cy.get('.movie-card').first().find('.vote-count').should('contain', 32543)
+  })
+
+  it('the first movie card upvote button updates the vote count', ()=>{
+    cy.intercept('PATCH', 'https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/155', {
+      statusCode: 200,
+      fixture: 'dark_knight_up'
+    }).as('interception')
+    cy.get('.movie-card').first().find('.vote-count').contains(32544)
     cy.get('.movie-card').first().find('.upvote').click()
       .wait('@interception')
-    cy.get('.movie-card').first().find('.vote-count').contains(32544)
+    cy.get('.movie-card').first().find('.vote-count').contains(32545)
   })
   
   it('the last movie card has vote buttons that change the vote count', ()=>{
