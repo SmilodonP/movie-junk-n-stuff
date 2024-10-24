@@ -1,5 +1,5 @@
 import logo from '../App/assets/RT_logo.png';
-import homeIcon from '../App/assets/home_icon.png';
+import homeIcon from '../App/assets/home_icon copy.png';
 import { Link } from 'react-router-dom'
 
 const HomeHeader = () => {
