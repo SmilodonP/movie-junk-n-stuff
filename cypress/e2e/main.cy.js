@@ -70,4 +70,13 @@ describe('Main Page', () => {
       .wait('@interception2')
     cy.get('.movie-card').eq(3).find('.vote-count').should('contain', 27643)
   })
+
+  it('takes the user to a movie details page when poster is clicked', ()=>{
+    cy.intercept('GET', 'https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/155', {
+      statusCode: 200,
+      fixture: 'movie_details'
+    })
+    cy.get('.movie-card').first().find('.movieImage').click()
+    cy.url().should('include', '/155')
+  })
 })
