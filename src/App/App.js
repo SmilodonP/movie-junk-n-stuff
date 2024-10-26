@@ -21,7 +21,7 @@ function App() {
         const updatedMovies = movies.map(movie =>
           movie.id === updatedMovie.id ? updatedMovie : movie
       );
-        setMovies(updatedMovies);
+        setMovies([...updatedMovies]);
       })
       .catch(error => navigate(`*`, { state: { error: error}}));
   };
