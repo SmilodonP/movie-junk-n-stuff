@@ -7,9 +7,11 @@ describe('Main Page', () => {
     })
     cy.visit('http://localhost:3000/')
   })
-
-  it('displays title on page load', () => {
+  
+  it('displays complete header on page load', () => {  
     cy.get('h1').contains('The RT Files')
+    cy.get('h3').contains('Movies Exist')
+    cy.get('[data-cy="plainLogo"]').should('have.attr', 'src', '/static/media/RT_logo.ef99034c404c91578cb9.png')
   })
 
   it('displays the movie cards with appropriate data on page load', () =>{
@@ -18,7 +20,6 @@ describe('Main Page', () => {
     cy.get('.movie-card').first().find('.vote-count').contains(32544)
     cy.get('.movie-card').first().find('.upvote').should('be.visible').and('not.be.disabled')
     cy.get('.movie-card').first().find('.downvote').should('be.visible').and('not.be.disabled')
-
 
     cy.get('.movie-card').eq(3).should('exist')
     cy.get('.movie-card').eq(3).find('.movieImage').should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg')

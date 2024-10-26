@@ -6,7 +6,7 @@ const HomeHeader = () => {
     return (
         <header>
             <section className='logo'>
-                <img src={logo} alt="logo"/> 
+                <img src={logo} alt="logo" data-cy='plainLogo'/> 
             </section>
             <section className='titles'>
                 <h1>The RT Files</h1>
@@ -24,7 +24,7 @@ const DetailsHeader = () => {
         <header>
             <section className='logo'>
                 <Link to={'/'}>
-                    <img src={homeIcon} alt="home button"/> 
+                    <img src={homeIcon} alt="home button" data-cy="homeButton"/> 
                 </Link>  
             </section>  
             <section className='titles'>
