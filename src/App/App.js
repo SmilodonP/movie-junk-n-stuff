@@ -36,7 +36,7 @@ function App() {
   const getDetails = (id) => {
     fetch(`https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/${id}`)
       .then(response => response.json())
-      .then(data => navigate(`/${id}`, { state: { movieDetails: data}}))
+      .then(data => navigate(`/movies/${id}`, { state: { movieDetails: data}}))
       .catch(error => navigate(`*`, { state: { error: error}}));
 
   }
@@ -53,12 +53,16 @@ function App() {
               <Movies movies={movies} getDetails={getDetails} updateMovies={updateMovies}/>
             </>
           }/>
-        <Route path='/:id' element={<>
+        <Route path='/movies/:id' element={<>
             <DetailsHeader />
             <MovieDetails />
           </>
         }/>
-        <Route path='*' element={<Error />}/>
+        <Route path='*' element={<>
+            <DetailsHeader />
+            <Error />
+          </>
+        }/>
       </Routes>
     </main>
   );
