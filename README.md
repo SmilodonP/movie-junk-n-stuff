@@ -4,7 +4,6 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
     <img src="src/App/assets/RT_logo.png" alt="Logo" width="150" height="150">
   </a>
 
@@ -12,8 +11,6 @@
 
   <p align="center">
     An out of this world movie experience!
-    <br />
-    <a href="https://github.com/SmilodonP/movie-junk-n-stuff"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <img src="README_assets/ezgif.com-optimize.gif", alt="project gif">
@@ -49,8 +46,6 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 Looking for the next great movie, but unsure of what to look for, then this is a great place to stop. It provides a clean user experience that shows popular movies from a wide range of genres. Each movie is actively voted on to show its relative popularity.
 
